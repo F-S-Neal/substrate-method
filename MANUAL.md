@@ -1,6 +1,6 @@
 ---
 title: The Substrate Method — A Worldbuilding Vault for Novelists
-version: 1.3
+version: 1.3.1
 status: setup guide
 ---
 
@@ -117,7 +117,7 @@ UniverseVault/              ← one world, however many projects share it
 ├── Spark Catalog.md        ← every last spark on a topic, full text, includes rejected
 ├── Spark Assembler.md      ← review a topic's sparks, categorized, linked, headers only
 ├── _Prompts/               ← shipped prompts — copy into Copilot's folder
-├── _External AI Prompts/   ← OCR / Bulk Import / Big-Topic prompts for AIs outside Obsidian (optional)
+├── _External AI Prompts/   ← OCR / Import / Bulk Tag / Big-Topic prompts for AIs outside Obsidian (optional)
 ├── _Templates/             ← Substrate templates: Spark, Canonical, Theme, Loose Threads, Scene Report
 ├── _tags.md                ← the master tag list
 └── MANUAL.md · INSTALL.md · README.md · CHANGELOG.md · LICENSE  ← docs
@@ -210,6 +210,8 @@ This is the part to actually follow (plugins installed per §4, starter dropped 
 1. Run **"Templater: Create new note from template" → Spark** (set `Sparks/` as your default new-note folder so it lands there). It prompts you for the idea — that text becomes the note's body *and* names the note — and optionally a tag or two; leave tags blank to add them next.
 2. Run **`/Tag Spark`** in Copilot with the note open. In one pass it adds any entity tags you missed, the **aspect tags** that say which facets the spark touches (`aspect/appearance`, `aspect/relationships`…), and a one-line `summary:`. Paste its frontmatter block over the note's top. Those aspects and that summary are what make step C readable later — don't skip it if you'll ever review this topic.
 3. Close it. Keep capture that cheap.
+
+*Got a pile of already-captured but untagged sparks?* Run the **Bulk Tag Sparks** prompt (`_External AI Prompts/`) in Claude Code / Cowork / Copilot Agent to tag them all at once — it's the batched, file-writing version of `/Tag Spark`.
 
 ### B. Bulk-import a backlog (once per pile)
 Done *outside* Obsidian, in Claude Code or Cowork (they write files), then dragged in — it turns a heap of old notes into proper, tagged, summarized sparks without retyping.

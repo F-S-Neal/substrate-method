@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.3.1 — June 2026
+
+### Added
+- **Bulk Tag Sparks** prompt (`_External AI Prompts/`) — the batched, file-writing version of
+  `/Tag Spark`: tag many existing sparks at once in Claude Code / Cowork / Copilot Agent. Keeps
+  existing tags, pauses after the first 5 for review, and skips already-tagged sparks.
+
 ## v1.3 — June 2026
 
 Makes page creation hands-off and finishes the report-model cutover. No new plugins.
