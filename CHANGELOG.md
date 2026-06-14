@@ -1,5 +1,28 @@
 # Changelog
 
+## v1.4 — June 2026
+
+One review note instead of two. The **Spark Catalog** and **Spark Assembler** are merged into a
+single **Spark Assembler** with a **Chrono ⇄ Topic** toggle, so you no longer pick a note based on
+how you think.
+
+### Added
+- **Chrono ⇄ Topic toggle** in the Spark Assembler. *Topic* view groups a topic's sparks by aspect
+  as one-line summaries (the old Assembler). *Chrono* view is the flat stream in the order you wrote
+  them, with an **oldest/newest** order button (the old Spark Catalog).
+- **Inline full text.** Every spark line has a **▸** arrow that reveals its full text in place; the
+  summary stays a link to the spark. An **Expand all / Collapse all** button opens the whole list.
+- **Clickable Topics index** at the top — click a tag to load it (no editing the `topic` property by
+  hand). Includes an **unaspected** entry that surfaces sparks still missing an aspect tag.
+- **Blank `topic` shows every spark** instead of nothing.
+
+### Changed
+- **The Spark Catalog note is gone**; its job is now the Assembler's Chrono view. Upgrading an
+  existing vault? Replace your old `Spark Assembler.md` with the new one and delete
+  `Spark Catalog.md`.
+- Conflict warnings in the list are now **clickable red links** to the conflicting spark.
+- MANUAL / INSTALL / README updated throughout to describe the one unified note.
+
 ## v1.3.1 — June 2026
 
 ### Added

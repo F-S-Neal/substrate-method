@@ -23,12 +23,11 @@ If you find an error or change your mind, just fix the spark and re-synthesize.
 
 - **Sparks** — atomic, tagged idea-notes. The raw pile.
 - **Tag Spark** — a one-click prompt that adds a spark's entity tags, aspect (facet) tags, and a one-line summary.
-- **Spark Assembler** — review a topic's sparks grouped by aspect (appearance, relationships…), and cull before you synthesize.
+- **Spark Assembler** — one review note with a **Chrono ⇄ Topic** toggle: Topic view groups a topic's sparks by aspect (appearance, relationships…) as clickable summaries so you can cull before you synthesize; Chrono view shows every spark's full text in the order written (expand inline with a ▸ arrow) for brainstorming against the raw pile or reviewing what you cut.
 - **Synthesis** — an AI prompt that reports a topic's approved sparks into its reference page (aspect-organized for characters), and re-reports incrementally as sparks change.
 - **Canonical pages** — the report of the sparks you kept; what you write from. You don't hand-edit them — fix a spark and regenerate. Flat, named `Type_Name`.
 - **Canonical Index** — every page by type, plus a "to synthesize" queue so you never forget the cast.
 - **Book Bible** — a whole project's world (cast by priority, everything else by type), with a full-text **export** version.
-- **Spark Catalog** — the full text of every raw spark on a topic, for brainstorming.
 - **Scene cheat sheets** — a one-pager for exactly the scene you're about to write.
 - **A Rejected pile** — ideas you killed but kept, out of synthesis yet never lost.
 
@@ -43,7 +42,7 @@ This is an opinionated workflow that leans on an AI plugin. Be clear-eyed about 
 
 - **[Obsidian](https://obsidian.md)** (free).
 - **Copilot for Obsidian** by *Logan Yang* — the AI. Several community plugins are named "Copilot"; you want this author's. It needs **either** an API key from a provider (Anthropic, OpenAI, Google — pay-as-you-go, usually pennies per use) **or** a free local model via Ollama / LM Studio (slower and weaker, but free and private).
-- **Dataview** — powers the live views (Book Bible, Canonical Index, Spark Assembler, Spark Catalog). You must turn on its **JavaScript Queries** toggle (INSTALL §2b).
+- **Dataview** — powers the live views (Book Bible, Canonical Index, Spark Assembler). You must turn on its **JavaScript Queries** toggle (INSTALL §2b).
 - **Templater**, **Smart Connections**, **Auto Note Mover** — templates, related-note surfacing, and auto-filing of rejected sparks.
 
 > **Tested on:** Obsidian `1.12.7`, Copilot `3.3.3`, Dataview `0.5.68`. If your plugin versions differ and the gather misbehaves, please say so in an issue — see the honest caveat below.
@@ -71,7 +70,7 @@ The vault ships a **smoke test** (three demo sparks) precisely so you can verify
 ## Troubleshooting
 
 - **"It only found some of my notes."** The missing notes have their tag in the body, not in Properties. Move it to the `tags:` field. Then quit and reopen Obsidian so Copilot re-indexes, and re-run in a *new* chat.
-- **"Dataview JS queries are disabled."** Turn on Settings → Dataview → **Enable JavaScript Queries** (INSTALL §2b). The Spark Assembler, Spark Catalog, Canonical Index, and Book Bible need it.
+- **"Dataview JS queries are disabled."** Turn on Settings → Dataview → **Enable JavaScript Queries** (INSTALL §2b). The Spark Assembler, Canonical Index, and Book Bible need it.
 - **"My prompts don't show up in Copilot."** They must sit in Copilot's own custom-prompts folder (default `copilot-custom-prompts/` at the vault root), then toggle the plugin off/on. Don't re-point Copilot's setting at the `_Prompts/` folder. (INSTALL §3.)
 - **"Rejected notes aren't moving" — or a note vanished into `Rejected/`.** Auto Note Mover fires when you tag a note, not on restart — add the rule (INSTALL §0) and edit the note once. And the reverse trap: never write a literal `#tag` in a note's *prose* — a stray `#rejected` in your text reads as a live tag and gets the whole note auto-filed away. Wrap tags in `backticks` or drop the `#`.
 

@@ -1,6 +1,6 @@
 ---
 title: The Substrate Method — A Worldbuilding Vault for Novelists
-version: 1.3.1
+version: 1.4
 status: setup guide
 ---
 
@@ -53,7 +53,7 @@ If you read nothing else, I'd read **"What you can make"** (just below) and **§
 
 I'm going to assume you know your Obsidian basics, so this is just the parts specific to Substrate that are easy to misread:
 
-1. **There are no special note "types."** Sparks, canonical pages, the Book Bible, the Spark Catalog — every one of them is just an ordinary `.md` note. What makes them different is only where they sit and what's inside them. When this guide says "make a note," it means exactly that--add note. I've pre-built the ones with anything tricky inside (the Dataview views), so you usually just drop ours in.
+1. **There are no special note "types."** Sparks, canonical pages, the Book Bible, the Spark Assembler — every one of them is just an ordinary `.md` note. What makes them different is only where they sit and what's inside them. When this guide says "make a note," it means exactly that--add note. I've pre-built the ones with anything tricky inside (the Dataview views), so you usually just drop ours in.
 2. **Tags have to live in a note's Properties, not typed loose in the body.** Substrate's whole "gather everything about Gary" trick depends on the tag being in the `tags:` Properties field. A `#gary` typed in the middle of your text won't be found. The Substrate templates already put tags in the right place, so if you use them you're fine.
 3. **The AI lives in a side panel (the Copilot plugin) and never acts on its own.** You run a prompt already written for you (sometimes you edit a placeholder word or two); its answer appears in the Copilot panel; you copy what you want from the result into a note. Copilot never edits or overwrites your pages behind your back.
 
@@ -67,13 +67,11 @@ Before any setup, here's the whole toolkit — everything Substrate can produce 
 
 **A thought about catching ideas away from the desk.** Your best ideas might ambush you in the shower, arrive in a dream, sneak up on you while walking. You might catch them on your phone, or a legal pad, or a Moleskine notebook. That's fine. Substrate includes a way to bulk-import a backlog of old notes (see §8 B). As a creative, capturing your ideas is a recurring task, not a one-time event, so many creatives will probably use bulk import semi-frequently.
 
-- **Canonical note** — your settled, official answer about one thing: a character, a place, a magic rule, a faction. *For:* the page you actually write from; it keeps your details from drifting mid-draft. *How:* once you've culled a topic's sparks down to your official ones (using the Spark Assembler or Catalog), Copilot creates a **report** by organizing them into a page (called **synthesis** for short). You write from the report; you don't hand-edit it — to make changes, you fix the spark and regenerate the report.
+- **Canonical note** — your settled, official answer about one thing: a character, a place, a magic rule, a faction. *For:* the page you actually write from; it keeps your details from drifting mid-draft. *How:* once you've culled a topic's sparks down to your official ones (using the Spark Assembler), Copilot creates a **report** by organizing them into a page (called **synthesis** for short). You write from the report; you don't hand-edit it — to make changes, you fix the spark and regenerate the report.
 
 > **Tags collect, links connect.** Two ways things relate in Substrate, doing two different jobs. **Tags** (in Properties) are how Substrate *gathers*: `{#gary}` pulls every Gary spark into a synthesis. **Links** (`[[Gary]]`) are how you *navigate* between finished pages — Obsidian tracks them as backlinks automatically. Tag to collect; link to connect.
 
-- **Spark Assembler** — a reviewer that lists a topic's sparks grouped into categories called **aspects** (for a character it might be appearance, mannerisms, relationships…). You can click these summary lines to reach the underlying spark. *For:* reviewing and making creative decisions about a topic before you synthesize. *How:* open it, set a topic, put a `#rejected` in the tags of ideas you don't want. Maybe break them into multiple sparks and just `#rejected` part of a spark.
-
-- **Spark Catalog** — a page that shows you the full text of every *raw* spark on a topic in one place (or every one you *rejected*). *For:* brainstorming against your unfiltered pile, or reviewing what you cut. *How:* open the Spark Catalog and type the topic in the front matter.
+- **Spark Assembler** — one reviewer with a **Chrono ⇄ Topic** toggle. In **Topic view** it lists a topic's sparks grouped into categories called **aspects** (for a character it might be appearance, mannerisms, relationships…), each a one-line summary you click to reach the underlying spark — for culling and making creative decisions before you synthesize. In **Chrono view** it shows the full text of every spark on a topic in the order written (oldest/newest toggle), with a ▸ arrow on each line to expand a spark's full text inline — for brainstorming against your unfiltered pile, or reviewing what you cut. *How:* open it, click a Topic (or leave blank for all), switch views as needed, and put a `#rejected` in the tags of ideas you don't want. Maybe break them into multiple sparks and just `#rejected` part of a spark.
 
 - **Scene Cheat Sheet** — build a tight one-pager for the exact scene you're about to write: just the people, places, and rules in play. *For:* keeping continuity while you draft (in Scrivener, Word, or right in Obsidian). *How:* run the scene prompt, fill in who/where/when.
 
@@ -114,8 +112,7 @@ UniverseVault/              ← one world, however many projects share it
 ├── Rejected/               ← killed ideas, kept so you can still browse them
 ├── SceneReports/           ← the scene cheat sheets you can generate
 ├── Exploratory Prose/      ← raw prose you want to harvest sparks from
-├── Spark Catalog.md        ← every last spark on a topic, full text, includes rejected
-├── Spark Assembler.md      ← review a topic's sparks, categorized, linked, headers only
+├── Spark Assembler.md      ← review a topic's sparks: Chrono ⇄ Topic toggle (full text in time order, or aspect-grouped summaries)
 ├── _Prompts/               ← shipped prompts — copy into Copilot's folder
 ├── _External AI Prompts/   ← OCR / Import / Bulk Tag / Big-Topic prompts for AIs outside Obsidian (optional)
 ├── _Templates/             ← Substrate templates: Spark, Canonical, Theme, Loose Threads, Scene Report
@@ -151,7 +148,7 @@ All from **Settings → Community plugins → Browse**. Here's what each one doe
 | Plugin | What it does for you |
 |---|---|
 | **Copilot** (by Logan Yang) | The AI you talk to inside Obsidian. It reads your tagged notes and reports the reference pages and scene sheets. Needs an API key (see §5). Note: several plugins are named "Copilot" — install this author's. |
-| **Dataview** | Powers the auto-updating views — the Book Bible, the Canonical Index, the Spark Assembler, and the Spark Catalog. You'll use the ones we provide; you won't write any of it. (Turn on its **JavaScript Queries** — INSTALL.) |
+| **Dataview** | Powers the auto-updating views — the Book Bible, the Canonical Index, and the Spark Assembler. You'll use the ones we provide; you won't write any of it. (Turn on its **JavaScript Queries** — INSTALL.) |
 | **Smart Connections** | Surfaces related sparks you'd forgotten while you're planning a scene — your "you also thought about this" helper. Runs privately on your own machine; just let it index once. |
 | **Templater** | Runs the templates — they *prompt* you for each page's fields (Spark, Canonical, Theme, Loose Threads, Scene Report). Make pages with "Templater: Create new note from template." |
 | **Auto Note Mover** | The moment you tag a spark `#rejected`, it moves it into `Rejected/` for you. Set **one** rule only: tag `#rejected` → folder `Rejected/`. |
@@ -186,15 +183,15 @@ Modern AI reads messy handwriting surprisingly well, because it uses context to 
 
 In one breath, with a little more detail:
 
-Drop ideas into a note in the Sparks/ folder as they hit → open Copilot and run `/Tag Spark` → when a topic reaches critical mass, or whenever you like really, **review and reject** it in the Spark Assembler or Catalog → **synthesize** the survivors into a report (the canonical page) → **write** from your canonical pages and scene sheets → if something's wrong or you change your mind, fix the spark and re-synthesize. That's the whole rhythm. §8 is the click-by-click version.
+Drop ideas into a note in the Sparks/ folder as they hit → open Copilot and run `/Tag Spark` → when a topic reaches critical mass, or whenever you like really, **review and reject** it in the Spark Assembler → **synthesize** the survivors into a report (the canonical page) → **write** from your canonical pages and scene sheets → if something's wrong or you change your mind, fix the spark and re-synthesize. That's the whole rhythm. §8 is the click-by-click version.
 
 **Beyond that core workflow**, three things sit *outside* capture→write — each a deliberate, on-demand step that depends on you having synthesized pages first:
 
 - **The Book Bible** (§8 E) is a *view over your synthesized canonical pages*, not part of capture. Once you've settled some pages, set a `series`/`book` and it assembles them for browsing, or exports them as one full-text document. It comes into play when you want to *see or share* a whole book. Empty until you have canonical pages.
 
-- **Scene Reports** (§8 G) are generated *on demand, right before you write a scene*, from your *canonical pages* (not raw sparks) — so they're downstream of the cull.
+- **Scene Reports** (§8 F) are generated *on demand, right before you write a scene*, from your *canonical pages* (not raw sparks) — so they're downstream of the cull.
 
-- **Themes** (§8 H) are *not automatic, by design*. A periodic pass: Theme Discovery proposes motifs, you ratify, you tag the embodying sparks, a theme page gathers them. Themes lag the pile because a theme is an interpretation that needs your yes.
+- **Themes** (§8 G) are *not automatic, by design*. A periodic pass: Theme Discovery proposes motifs, you ratify, you tag the embodying sparks, a theme page gathers them. Themes lag the pile because a theme is an interpretation that needs your yes.
 
 ---
 
@@ -224,7 +221,12 @@ Done *outside* Obsidian, in Claude Code or Cowork (they write files), then dragg
 After this you're in normal mode — new sparks arrive one at a time via step A. You only re-import when you onboard a brand-new pile.
 
 ### C. Review & cull a topic — *this is the deciding* (the Spark Assembler)
-When a topic has piled up and you're thinking of settling it, this is the step that matters. Open the **Spark Assembler** and set `topic: gary`. It lists every Gary spark **grouped by aspect**: all the appearance ideas together, all the relationships together, each a one-line summary you click to open. Because same-facet sparks sit together, a contradiction (blonde vs ginger) is impossible to miss — open the loser and tag it `#rejected`. A spark that no topic fits gets `#misc` (see §8 I). Working through the pile — keeping what's true, killing what's wrong — *is* the deciding, and it's what burns the world into your memory. When the pile reads clean, the hard part is done; synthesis just reports what survived.
+When a topic has piled up and you're thinking of settling it, this is the step that matters. Open the **Spark Assembler** and click a Topic from the index at the top (or type `topic: gary`; leave `topic` blank to show *all* sparks, and use the **unaspected** entry to surface sparks with no aspect tag). The Assembler has a **Chrono ⇄ Topic** toggle:
+
+- **Topic view** lists every Gary spark **grouped by aspect**: all the appearance ideas together, all the relationships together, each a one-line summary you click to open. Because same-facet sparks sit together, a contradiction (blonde vs ginger) is impossible to miss — open the loser and tag it `#rejected`.
+- **Chrono view** shows the full text of every spark on the topic in the order written (toggle oldest/newest). Hit the ▸ arrow on any line to expand that spark's full text inline, or use **Expand all**. This is the raw-pile read: brainstorming against your unfiltered material, or reviewing what you cut (`mode: rejected` shows the killed ones). For a *sorted*, cull-as-you-go pass, switch back to Topic view.
+
+A spark that no topic fits gets `#misc` (see §8 H). Working through the pile — keeping what's true, killing what's wrong — *is* the deciding, and it's what burns the world into your memory. When the pile reads clean, the hard part is done; synthesis just reports what survived.
 
 ### D. Synthesize — report the page (the main event)
 You do this when a topic's cull is clean. The order matters: you make the page **first**, then report into it.
@@ -243,13 +245,10 @@ Open **`Canonical/_Book Bible`** and set `series` (the whole series) or `book` (
 - **To export a self-contained bible:** open **`_Book Bible Export`**, set the same scope — a table of contents followed by the *full text* of every page. Export to PDF/Word. (No live links once exported, and no AI — straight assembly.)
 - **To navigate across books, or see what's left to build:** the **`_Canonical Index`** lists every page by `type`, flags unreviewed ones, and shows a **To Synthesize** queue — topics with sparks but no page yet, so you never have to remember the cast.
 
-### F. Read the raw pile — the Spark Catalog
-`Spark Catalog.md` (vault root). Set `topic` (a tag) and `mode`: `active` shows every live spark on that topic in full; `rejected` shows everything you killed. For brainstorming against unfiltered material or reviewing cuts. (For a *sorted*, cull-as-you-go view instead of a raw dump, use the Spark Assembler — §8 C.)
-
-### G. Scene cheat sheet — right before you write
+### F. Scene cheat sheet — right before you write
 Run your **Scene Report** prompt in Copilot and fill in who/where/when. It pulls only from your *finished canonical pages* (not raw sparks) and returns a tight one-pager. Make a landing note with **"Templater: Create new note from template" → Scene Report** (it prompts for the scene title and dates it), drop the cheat sheet into the body, and keep it open while you draft — it lives in `SceneReports/`. Re-run before a session as a memory refresh.
 
-### H. Build a theme page (a motif bible)
+### G. Build a theme page (a motif bible)
 The themes your book is *about* — trust, a parent's sins, hiding yourself — cut across characters, scenes, and the magic, and they're usually worded so differently that tags and Smart Connections both miss them. The LLM doesn't. So:
 
 1. **Discover (the AI hunts).** In Copilot, run the **Theme Discovery Prompt** (§9f) over a scope of sparks — a character's tag, a few tags, a book's worth. (For the *whole* story at once, run it in Claude Code so it can read everything in batches.) It reads for meaning and proposes candidate motifs plus the specific sparks that embody each.
@@ -261,7 +260,7 @@ The result is a living **motif bible**: the sparks that embody the theme, plus y
 
 **Finding your themes later** (you won't remember them all): open **`Themes/_Themes Index`** — a Dataview list of every `#theme/...` tag and how many sparks carry it — or expand **`theme`** in Obsidian's Tag pane. Both show you every motif you've tagged, so you can see what's accrued enough material to deserve a page. The namespace *is* your index.
 
-### I. Loose threads — sparks that don't fit a page
+### H. Loose threads — sparks that don't fit a page
 Some sparks are true for the story but don't belong to any character, setting, or magic page — they just don't fit a neat category. Don't lose them:
 
 1. **Tag the homeless ones `#misc`.** A spark earns `#misc` only when no other topic fits. Open `_tags.md` and its "untriaged orphans" query lists every live `#misc` spark — your inbox.
@@ -416,9 +415,9 @@ All five live in `_Templates/` and run on **Templater** — they *prompt* you fo
 
 - **Spark** — one prompt for the idea (which also names the note) and an optional tag or two; `created` is dated. Then run `/Tag Spark`.
 - **Canonical** — you name the note `Type_Name` (e.g. `Character_Gary`); it derives `type` (the prefix), `aliases` (the bare name), and a `topic` guess from the name, prompts for `series`/`book`/`topic`, and — if the type is `character` — offers **skippable** pickers for the fixed lists: `priority` = Primary/Secondary/Tertiary; `role` = Protagonist/Antagonist/Contagonist/Guide/Sidekick/Love_Interest/Temptress; `posture` = Protector/Deflector/Believer/Doubter/Thinker/Feeler. `review` starts `unreviewed`; the body is left empty for synthesis. (`topic:` drops the page off the "To Synthesize" queue; the Index/Bible surface anything not `reviewed`.)
-- **Loose Threads** — a canonical page for accepted ideas that fit nothing else. Prompts for the book and the loose-tag slug, names the page `Misc_<Book> Loose Threads`, and wires `#<slug>-misc` into its Dataview block; synthesize it (`TYPE: loose-threads`) like any page. See §8 I.
-- **Theme** — prompts the theme name, its tag, and the book, and wires `#theme/<tag>` straight into its Dataview block (no `CHANGEME`). You hand-write the "how this motif plays out" section. See §8 H.
-- **Scene Report** — prompts the scene title and dates a landing note in `SceneReports/` for the pasted cheat sheet. See §8 G.
+- **Loose Threads** — a canonical page for accepted ideas that fit nothing else. Prompts for the book and the loose-tag slug, names the page `Misc_<Book> Loose Threads`, and wires `#<slug>-misc` into its Dataview block; synthesize it (`TYPE: loose-threads`) like any page. See §8 H.
+- **Theme** — prompts the theme name, its tag, and the book, and wires `#theme/<tag>` straight into its Dataview block (no `CHANGEME`). You hand-write the "how this motif plays out" section. See §8 G.
+- **Scene Report** — prompts the scene title and dates a landing note in `SceneReports/` for the pasted cheat sheet. See §8 F.
 
 *The old per-book Book Dashboard template is gone — the live `_Book Bible` does its job (set its `book`).*
 
@@ -463,7 +462,7 @@ Steps:
 3. Check two things in the report:
    - It includes **both** the red boot **and** the fear of water → the gather grabbed every `gary` note. ✓
    - It does **not** mention the "lost king" → the rejected note was correctly excluded. ✓
-4. **If a note is missing** (e.g. the red boot doesn't show up), the gather isn't pulling everything. Quit and reopen Obsidian so its index refreshes, confirm Copilot has finished indexing, and re-run in a new chat. To prove whether it's Copilot or your notes: open the **Spark Catalog**, set `topic: gary` — Dataview scans the folder directly and can't miss, so it should show all three (the king only in `rejected` mode). If the Spark Catalog shows all three but Copilot's `{#gary}` doesn't, the weak link is Copilot's gather — use the Spark Catalog's output, or the **Big-Topic Synthesis Prompt** in Claude Code, in place of `{#gary}`.
+4. **If a note is missing** (e.g. the red boot doesn't show up), the gather isn't pulling everything. Quit and reopen Obsidian so its index refreshes, confirm Copilot has finished indexing, and re-run in a new chat. To prove whether it's Copilot or your notes: open the **Spark Assembler** (Chrono view), set `topic: gary` — Dataview scans the folder directly and can't miss, so it should show all three (the king only in `rejected` mode). If the Spark Assembler shows all three but Copilot's `{#gary}` doesn't, the weak link is Copilot's gather — use the Spark Assembler's output, or the **Big-Topic Synthesis Prompt** in Claude Code, in place of `{#gary}`.
 5. When it passes, delete the demo content: the three `DEMO - gary…` sparks **and** the demo cast (every page tagged `zzdemo` — the `Character_*`, `Magic_`, and `Setting_` demo pages in `Canonical/`). Tip: search the vault for `zzdemo` to select them all at once. Then blank the `_Book Bible`'s `series` so it's empty for your own world.
 
 > This won't tell you how big a topic can get before it overflows one pass — you only hit that on a giant topic, and the §8 "too big" note is the fix.
@@ -503,7 +502,7 @@ Covered as a task in §8 E. In short: a single page exports to PDF with one clic
 2. Install the plugins (§4): Copilot, Dataview, Smart Connections, Templater, Auto Note Mover (one rule: `#rejected` → `Rejected/`), Advanced Merger, and core Note Composer.
 3. Connect the AI (§5): add your **API key** in Settings → Copilot (or set a local model). Confirm Claude Code/Cowork for handwriting + imports.
 4. Point Templater at `_Templates/`; **copy** the Copilot prompts from `_Prompts/` (Synthesis, Scene Report, Smoke Test, Theme Discovery, Tag Spark) into Copilot's own `copilot-custom-prompts/` folder (don't re-point Copilot's setting at `_Prompts/`, or you'll hide its built-ins), then **reload Copilot** (toggle the plugin off/on, or restart Obsidian) so it sees them; turn on Dataview's JavaScript queries; let Smart Connections index once.
-5. **Run the smoke test (§9.5)** using the demo sparks already in the vault — also your first look at the prompt, the bible, and the Spark Catalog. Don't skip it. Delete the DEMO files only after it passes.
+5. **Run the smoke test (§9.5)** using the demo sparks already in the vault — also your first look at the prompt, the bible, and the Spark Assembler. Don't skip it. Delete the DEMO files only after it passes.
 6. Set up your phone capture inbox (§11).
 7. Import your backlog (§8 B), one project at a time, settling your tag spellings as you go.
 8. To see a project's world, open the **`_Book Bible`** and set its `series`/`book`; the **`_Canonical Index`** shows what's built and what's still to synthesize.
@@ -519,8 +518,7 @@ Covered as a task in §8 E. In short: a single page exports to PDF with one clic
 - **Canonical note** — the report synthesis writes from a topic's approved sparks; what you write from. You don't hand-edit it — fix a spark and re-synthesize. Named `Type_Name`, lives flat in `Canonical/`.
 - **Synthesis** — having the AI gather a topic's approved sparks and report them into its canonical page.
 - **The cull ("deciding")** — your judging of which sparks are true, done in the Spark Assembler (keep/reject); the one step you never automate, and how you memorize your world.
-- **Spark Assembler** — review surface: a topic's sparks grouped by aspect, for culling before synthesis.
-- **Spark Catalog** — a page that shows every raw (or every rejected) spark on a topic, in full.
+- **Spark Assembler** — the review surface, with a **Chrono ⇄ Topic** toggle: Topic view groups a topic's sparks by aspect as one-line summaries (for culling before synthesis); Chrono view shows every spark's full text in the order written (for brainstorming or reviewing cuts).
 - **Canonical Index** — navigator: all canonical pages by type, plus a "to synthesize" queue.
 - **Book Bible** — a per-book/series view of finished pages (cast by priority, others by type); a companion Export version renders full text + TOC.
 - **Scene cheat sheet** — a one-page reference for a specific scene, pulled from canonical pages.

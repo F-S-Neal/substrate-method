@@ -4,7 +4,7 @@ This whole `SubstrateVault` folder is a ready-to-use Obsidian vault — every fo
 
 ## 0. Install these Community plugins (Settings → Community plugins → Browse)
 - **Copilot** by Logan Yang — the AI; needs an API key. (Several plugins are named "Copilot" — pick this author's.)
-- **Dataview** — powers the live views (the Book Bible, Canonical Index, Spark Assembler, Spark Catalog). After install you MUST turn on its JavaScript Queries — see step 2b.
+- **Dataview** — powers the live views (the Book Bible, Canonical Index, Spark Assembler). After install you MUST turn on its JavaScript Queries — see step 2b.
 - **Templater** — makes the templates work.
 - **Smart Connections** — surfaces related sparks; just let it index once.
 - **Auto Note Mover** — auto-files rejected sparks. **You MUST add the rule or nothing moves:** Settings → Auto Note Mover → **Add new rule** → Folder `Rejected`, Tag `#rejected`, Trigger **Automatic**. (It moves a note when you tag it — not on restart — so to move one already tagged, edit it once or run command palette → "Auto Note Mover: Move the note".)
@@ -17,7 +17,7 @@ In Obsidian: **Open folder as vault** → point at this `SubstrateVault` folder.
 - `Sparks/` — your idea pile (flat).
 - `Canonical/` — settled pages, **flat, named `Type_Name`** (e.g. `Character_Gary`); plus `_Book Bible`, `_Book Bible Export`, and `_Canonical Index`.
 - `Themes/`, `Rejected/`, `SceneReports/`, `Exploratory Prose/`.
-- `Spark Catalog.md` and `Spark Assembler.md` — the review notes, at the root.
+- `Spark Assembler.md` — the review note, at the root (Chrono ⇄ Topic toggle: chronological full-text or aspect-grouped summaries).
 - `_Templates/`, `_Prompts/`, `_External AI Prompts/`, `_tags.md`, plus `MANUAL.md`, `README.md`, `CHANGELOG.md`, and `LICENSE`. (Most folders also hold a small `_README.md`.)
 
 **Add your own sub-folders anytime** — Substrate finds notes by tag and by the `type:` / `book:` properties, not by folder.
@@ -26,7 +26,7 @@ In Obsidian: **Open folder as vault** → point at this `SubstrateVault` folder.
 Settings → Templater → **Template folder location** → `_Templates`. The Substrate templates *prompt* you for what they need, so make new pages with the command **"Templater: Create new note from template"** (not the core Templates plugin). Optional: turn on **Settings → Templater → Trigger Templater on new file creation** if you want it to run automatically.
 
 ## 2b. Turn on Dataview's JavaScript Queries (don't skip)
-Settings → Community plugins → **Dataview** (gear/options) → toggle ON **"Enable JavaScript Queries."** (Leave "Enable Inline JavaScript Queries" alone — you don't need it.) Without this, the **Spark Assembler**, **Spark Catalog**, **Canonical Index**, and **Book Bible** show a "Dataview JS queries are disabled" error.
+Settings → Community plugins → **Dataview** (gear/options) → toggle ON **"Enable JavaScript Queries."** (Leave "Enable Inline JavaScript Queries" alone — you don't need it.) Without this, the **Spark Assembler**, **Canonical Index**, and **Book Bible** show a "Dataview JS queries are disabled" error.
 
 ## 3. Set up Copilot
 **a) Add your API key.** Settings → Copilot → your provider (Anthropic/Claude, OpenAI, Google…) → paste an API key from that provider's site. Pay-as-you-go, usually pennies. Pick a model (Claude Sonnet is a good default).
@@ -42,7 +42,7 @@ The vault ships three demo sparks for exactly this (all tagged `gary`, one also 
 2. Type `/` → pick **Smoke Test Prompt** → send. It's already filled in (topic Gary, tag `{#gary}`) — nothing to edit.
 3. The report should include the **red boot** AND the **fear of water**, and leave out the **lost king** (it's rejected).
    - All three correct → the gather works. You're good.
-   - A note missing → see manual §9.5: quit/reopen Obsidian, let Copilot finish indexing, re-run the smoke test in a new chat, and cross-check with the **Spark Catalog** (`topic: gary`).
+   - A note missing → see manual §9.5: quit/reopen Obsidian, let Copilot finish indexing, re-run the smoke test in a new chat, and cross-check with the **Spark Assembler** (`topic: gary`).
 4. When it passes, delete the demo content: the three `DEMO - gary…` sparks **and** the demo cast (search the vault for `zzdemo` to grab every demo `Character_`/`Magic_`/`Setting_` page at once), then blank the `_Book Bible`'s `series`.
 
 ## 5. The one habit that makes it all work.
